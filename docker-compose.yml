@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  selenium:
+    container_name: selenium
+    image: centos7-python36-selenium:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+  test:
+    container_name: test
+    image: centos7-python36-selenium:latest
+    command: sleep 1000000
+    volumes:
+      - .:/app
